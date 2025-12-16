@@ -1,81 +1,139 @@
-# TaskFlow - Premium Kanban Board
+# TaskFlow - Kanban Board Application
 
-A highly polished, responsive, and feature-rich task management application inspired by Trello. Built with **React**, **Vite**, and **Tailwind CSS**.
+تطبيق Kanban Board احترافي مبني بـ React و Tailwind CSS مع بنية معمارية نظيفة ومنظمة.
 
-## 🚀 Features
+## 🏗️ البنية المعمارية (Architecture)
 
-- **Multi-Board System**: Create and manage multiple workspaces (boards) for different projects.
-- **Drag & Drop**: Smooth, intuitive dragging for both **Tasks** and **Lists** (Columns) using `@hello-pangea/dnd`.
-- **Dynamic Workflows**: Add customized lists to define your own process (e.g., Backlog, Doing, Review, Done).
-- **Rich Task Management**: Create tasks with titles and detailed descriptions.
-- **Ultra-Premium UI/UX**:
-  - **Glassmorphism**: Modern frosted glass aesthetics with animated backgrounds.
-  - **Responsive Design**: Fully optimized for Mobile, Tablet, and Desktop.
-  - **Mobile Optimized**: Custom sidebar drawer and touch-friendly interactions.
-  - **Micro-Interactions**: Smooth hover effects, transitions, and "Glow" effects.
-- **Local Persistence**: All boards, lists, and tasks are automatically saved to `localStorage`.
-
-## 🛠 Tech Stack
-
-- **React 18**: Core framework using Functional Components and Hooks.
-- **Vite**: Next-generation frontend tooling.
-- **Tailwind CSS**: Utility-first CSS framework for complex, responsive designs.
-- **@hello-pangea/dnd**: For accessible and robust drag-and-drop functionality.
-- **Lucide React**: For consistent, pixel-perfect icons.
-
-## 📦 Installation & Setup
-
-1.  **Clone the repository**:
-    ```bash
-    git clone <repository_url>
-    cd taskflow-board
-    ```
-
-2.  **Install Dependencies**:
-    ```bash
-    npm install
-    # Ensure you are on a recent Node.js version
-    ```
-
-3.  **Start Development Server**:
-    ```bash
-    npm run dev
-    ```
-    Open `http://localhost:5173` to view the app.
-
-4.  **Build for Production**:
-    ```bash
-    npm run build
-    ```
-    The production-ready files will be generated in the `dist` folder.
-
-## 📂 Project Structure
+### 📁 هيكل المشروع
 
 ```
 src/
-├── components/
-│   ├── Column.jsx       # List container (Droppable) with separate visual/drag layers
-│   ├── TaskCard.jsx     # Individual Task (Draggable) with mobile-friendly actions
-│   └── Modal.jsx        # Reusable accessible modal with backdrop animations
-├── utils/
-│   └── initialData.js   # Multi-board data structure and initialization
-├── App.jsx              # Main Controller: State, Drag Logic, Routing (Boards)
-├── index.css            # Global Tailwind imports + Custom Glass classes
-└── main.jsx             # React Entry point
+├── components/          # المكونات المنفصلة
+│   ├── Sidebar.jsx     # القائمة الجانبية
+│   ├── Navbar.jsx      # شريط التنقل العلوي
+│   ├── Board.jsx       # لوحة Kanban الرئيسية
+│   ├── Column.jsx      # عمود المهام
+│   ├── TaskCard.jsx    # بطاقة المهمة
+│   ├── Modal.jsx       # مودال عام
+│   ├── TaskModal.jsx   # مودال المهام
+│   ├── ColumnModal.jsx # مودال الأعمدة
+│   └── BoardModal.jsx  # مودال Boards
+│
+├── hooks/              # Custom Hooks
+│   ├── useKanbanData.js    # إدارة البيانات و localStorage
+│   ├── useDragAndDrop.js   # منطق السحب والإفلات
+│   └── useModals.js        # إدارة المودالات
+│
+├── utils/              # الأدوات المساعدة
+│   └── initialData.js  # البيانات الأولية
+│
+├── App.jsx             # المكون الرئيسي (نظيف ومنظم)
+├── main.jsx            # نقطة الدخول
+└── index.css           # الأنماط العامة
 ```
 
-## 📝 Usage Guide
+## 🎯 المبادئ المتبعة
 
-- **Create Workspace**: Use the sidebar to create new boards for separate projects.
-- **Manage Lists**: Click "Add List" to create columns like "To Do" or "Done".
-- **Tasks**: Add tasks to any list. Click edit/delete icons (always visible on mobile, on-hover on desktop) to manage them.
-- **Navigating**: On mobile, use the burger menu to access the sidebar drawer to switch boards.
+### 1. **فصل المنطق عن العرض (Separation of Concerns)**
+- **Custom Hooks**: كل منطق معقد تم فصله في Custom Hooks
+  - `useKanbanData`: يدير البيانات والـ state
+  - `useDragAndDrop`: يدير منطق السحب والإفلات
+  - `useModals`: يدير حالات المودالات
 
-## 🎨 Deployment
+### 2. **Component-Based Architecture**
+- كل قسم من الـ UI في مكون منفصل
+- المكونات قابلة لإعادة الاستخدام (Reusable)
+- Props واضحة ومحددة
 
-This project is ready for **Vercel** or **Netlify**:
-1.  Push to GitHub.
-2.  Import project in Vercel.
-3.  Build Command: `npm run build`
-4.  Output Directory: `dist`
-# task-flow
+### 3. **Modern Tailwind CSS Setup**
+- استخدام `@tailwindcss/vite` plugin (الطريقة الحديثة)
+- `@import "tailwindcss"` بدلاً من `@tailwind` directives
+- CSS نظيف بدون `@apply` (vanilla CSS)
+
+## 🚀 التقنيات المستخدمة
+
+- **React 19** - مكتبة UI
+- **Vite 7** - Build tool سريع
+- **Tailwind CSS v4** - Styling (الإصدار الأحدث)
+- **@hello-pangea/dnd** - Drag and Drop
+- **Framer Motion** - Animations
+- **Lucide React** - Icons
+
+## 📦 التثبيت والتشغيل
+
+```bash
+# تثبيت المكتبات
+npm install
+
+# تشغيل المشروع
+npm run dev
+
+# بناء للإنتاج
+npm run build
+```
+
+## 🎨 الميزات
+
+- ✅ إنشاء Boards متعددة
+- ✅ إضافة وحذف الأعمدة
+- ✅ إضافة وتعديل وحذف المهام
+- ✅ السحب والإفلات (Drag & Drop)
+- ✅ حفظ البيانات في localStorage
+- ✅ تصميم Glassmorphism 
+- ✅ Responsive Design
+- ✅ Dark Mode
+
+## 🔧 Custom Hooks
+
+### useKanbanData
+يدير جميع عمليات البيانات:
+```javascript
+const {
+  data,           // البيانات الكاملة
+  activeBoard,    // Board الحالي
+  switchBoard,    // تبديل Board
+  createBoard,    // إنشاء Board
+  addColumn,      // إضافة عمود
+  deleteColumn,   // حذف عمود
+  addTask,        // إضافة مهمة
+  updateTask,     // تحديث مهمة
+  deleteTask,     // حذف مهمة
+} = useKanbanData();
+```
+
+### useDragAndDrop
+يدير منطق السحب والإفلات:
+```javascript
+const { onDragEnd } = useDragAndDrop(data, setData, activeBoard);
+```
+
+### useModals
+يدير حالات المودالات:
+```javascript
+const {
+  isTaskModalOpen,
+  openAddTaskModal,
+  closeTaskModal,
+  // ... المزيد
+} = useModals();
+```
+
+## 📝 ملاحظات مهمة
+
+1. **الكود نظيف ومنظم**: `App.jsx` الآن أقل من 200 سطر بدلاً من 569!
+2. **سهولة الصيانة**: كل جزء في ملف منفصل
+3. **قابلية إعادة الاستخدام**: المكونات والـ Hooks قابلة للاستخدام في مشاريع أخرى
+4. **Best Practices**: اتباع أفضل الممارسات في React
+
+## 🎓 للتعلم
+
+هذا المشروع مثال ممتاز على:
+- كيفية تنظيم مشروع React احترافي
+- استخدام Custom Hooks بشكل صحيح
+- فصل المنطق عن العرض
+- Component-Based Architecture
+- Modern Tailwind CSS setup
+
+---
+
+Made with ❤️ by Anas
