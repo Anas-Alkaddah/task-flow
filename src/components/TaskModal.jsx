@@ -1,8 +1,6 @@
 import Modal from './Modal';
 
-/**
- * TaskModal Component - مودال إضافة/تعديل المهام
- */
+
 const TaskModal = ({
     isOpen,
     onClose,

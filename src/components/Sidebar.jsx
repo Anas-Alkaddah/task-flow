@@ -1,9 +1,6 @@
 import { Plus, Layout, SquareKanban, Menu, Settings } from 'lucide-react';
 
-/**
- * Sidebar Component - القائمة الجانبية
- * يعرض قائمة Boards والتنقل بينها
- */
+
 const Sidebar = ({
     isSidebarOpen,
     setIsSidebarOpen,

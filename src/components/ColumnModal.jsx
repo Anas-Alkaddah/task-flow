@@ -1,8 +1,6 @@
 import Modal from './Modal';
 
-/**
- * ColumnModal Component - مودال إضافة عمود جديد
- */
+
 const ColumnModal = ({
     isOpen,
     onClose,

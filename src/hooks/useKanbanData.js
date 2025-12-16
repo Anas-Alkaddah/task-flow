@@ -14,10 +14,7 @@ const getInitialState = () => {
     return initialData;
 };
 
-/**
- * Custom Hook لإدارة بيانات Kanban
- * يتعامل مع: localStorage, boards, columns, tasks
- */
+
 export const useKanbanData = () => {
     const [data, setData] = useState(getInitialState);
 

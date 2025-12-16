@@ -1,8 +1,6 @@
 import Modal from './Modal';
 
-/**
- * BoardModal Component - مودال إنشاء Board جديد
- */
+
 const BoardModal = ({
     isOpen,
     onClose,

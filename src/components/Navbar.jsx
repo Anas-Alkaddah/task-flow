@@ -1,9 +1,6 @@
 import { Menu, Search, Bell, Plus } from 'lucide-react';
 
-/**
- * Navbar Component - شريط التنقل العلوي
- * يعرض عنوان Board الحالي وأزرار الإجراءات
- */
+
 const Navbar = ({
     isSidebarOpen,
     toggleSidebar,

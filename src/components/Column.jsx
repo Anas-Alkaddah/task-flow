@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import { Droppable, Draggable } from '@hello-pangea/dnd';
 import TaskCard from './TaskCard';
 import { Plus, MoreHorizontal, Trash2 } from 'lucide-react';

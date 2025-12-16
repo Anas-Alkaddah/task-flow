@@ -2,10 +2,7 @@ import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import { Plus, Layout } from 'lucide-react';
 import Column from './Column';
 
-/**
- * Board Component - لوحة Kanban الرئيسية
- * يعرض الأعمدة والمهام مع دعم Drag & Drop
- */
+
 const Board = ({
     activeBoard,
     onDragEnd,
